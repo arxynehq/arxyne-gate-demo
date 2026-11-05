@@ -1,0 +1,78 @@
+# Arxyne gate demo: a merge refused on a simulation result.
+#
+#   main       green  - the result meets its target
+#   violation  RED    - the same result misses a tighter target
+#
+# The gate reads SAVED results, so these jobs need no solver, Docker or GPU.
+
+name: Arxyne KPI gate
+
+on:
+  push:
+    branches: [main, violation]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# The published action, used exactly as a customer would: a released version, not a
+# branch. If the action were broken, every job below would say so.
+jobs:
+  gate:
+    name: gate (the result meets its target)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: arxynehq/arxyne-ci@v1.0.4
+        with:
+          product: onera-m6
+          arxyne_home: ${{ github.workspace }}/twins/passing
+          result_file: results.json
+          junit_file: gate.xml
+
+  # A report-only job over a FAILING verdict must not fail the build - and must not go
+  # green silently either, so the job asserts the report saw the missed target.
+  gate-report-only:
+    name: report-only (names the missed target, blocks nothing)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: gate
+        uses: arxynehq/arxyne-ci@v1.0.4
+        continue-on-error: true
+        with:
+          product: onera-m6
+          arxyne_home: ${{ github.workspace }}/twins/failing
+          fail_on_gate: false
+          result_file: results-report.json
+          junit_file: gate-report.xml
+      - name: The missed target was still reported
+        run: |
+          python3 - <<'PY'
+          import json
+
+          rows = json.load(open("results-report.json"))["gates"]["rows"]
+          failed = [r for r in rows if r.get("passed") is False]
+          assert failed, "report-only job saw no failure - the report is not honest"
+          print("reported:", ", ".join(str(r.get("name") or r.get("kpi")) for r in failed))
+          PY
+
+  # The gate OBEYS its verdict here: the CLI's exit status becomes the job's status, so
+  # the check goes red and a protection rule has something to refuse.
+  #
+  # The `if` keeps it off `main` - there it would make the demo permanently red, which
+  # teaches a reader to ignore red.
+  gate-violation:
+    name: gate (the result misses its target)
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'violation'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: arxynehq/arxyne-ci@v1.0.4
+        with:
+          product: onera-m6
+          arxyne_home: ${{ github.workspace }}/twins/failing
+          result_file: results-violation.json
+          junit_file: gate-violation.xml

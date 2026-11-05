@@ -1,0 +1,9 @@
+#usda 1.0
+(
+    defaultPrim = "Product"
+    doc = "onera-m6 — benchmark layer (stub; populated as lifecycle progresses)."
+)
+
+over "Product"
+{
+}

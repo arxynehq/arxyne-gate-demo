@@ -1,0 +1,73 @@
+#usda 1.0
+
+def Xform "Product"
+{
+    def Scope "SimulationRuns"
+    {
+        def Scope "run_20261027T143806590301"
+        {
+            custom double arxyne:kpi:cd = 0.01963624
+            custom double arxyne:kpi:cl = 0.1766451
+            custom double arxyne:kpi:cm_pitch = -0.01052788
+            custom double arxyne:run:cd = 0.01963624
+            custom int arxyne:run:cells = 96286
+            custom double arxyne:run:cl = 0.1766451
+            custom double arxyne:run:cm_pitch = -0.01052788
+            custom bool arxyne:run:converged = 1
+            custom int arxyne:run:converged_at = 117
+            custom string arxyne:run:domain = "aero"
+            custom string arxyne:run:executor_id = "openfoam"
+            custom double arxyne:run:final_residual = 0.00000281037949503
+            custom string arxyne:run:geometry_hash = "sha256:d969f3ce9ab04f3d628533b0380bd5476d0702443e3e08b8e5eb51e1a7d25a1f"
+            custom int arxyne:run:iterations_run = 117
+            custom string arxyne:run:kpi_converged_by = "solver"
+            custom string arxyne:run:kpi_converged_criterion = "simpleFoam declared convergence by its own residual criteria."
+            custom bool arxyne:run:mesh_cached = 1
+            custom int arxyne:run:nprocs = 4
+            custom string arxyne:run:parameters = '{"angle_of_attack_deg":{"default":3,"override":false,"value":3},"centre_of_rotation_m":{"default":[0.4,0,0],"override":false,"value":[0.4,0,0]},"convergence_check_interval":{"default":25,"override":false,"value":25},"convergence_min_iters":{"default":100,"override":false,"value":100},"convergence_tolerance":{"default":0.005,"override":false,"value":0.005},"freestream_velocity_mps":{"default":60,"override":false,"value":60},"geometry":{"default":null,"override":false,"value":null},"iterations":{"default":1000,"override":false,"value":1000},"mesh_level":{"default":4,"override":false,"value":4},"nprocs":{"default":4,"override":false,"value":4},"parallel_mesh":{"default":true,"override":false,"value":true},"reference_area_m2":{"default":0.7532,"override":false,"value":0.7532},"reference_length_m":{"default":0.646,"override":false,"value":0.646}}'
+            custom string arxyne:run:provenance:case_yaml = """freestream_velocity_mps: 60.0
+reference_area_m2: 0.7532
+reference_length_m: 0.646
+centre_of_rotation_m:
+- 0.4
+- 0
+- 0
+angle_of_attack_deg: 3.0
+mesh_level: 4
+nprocs: 4
+parallel_mesh: true
+iterations: 1000
+convergence_tolerance: 0.005
+convergence_check_interval: 25
+convergence_min_iters: 100
+solver_case_template: onera-m6
+template: onera-m6
+"""
+            custom string arxyne:run:provenance:fingerprint = "sha256:548b1e55a2e3560114eb7b29f6df90776ff39a89bfebf9d4ce6c91909643cd14"
+            custom string arxyne:run:provenance:mesh_cache = "e1fe077460610bc7f92f1a75146d645e1bebc6f294139a5691ffa776697ebd37"
+            custom string arxyne:run:provenance:parameters = '{"angle_of_attack_deg":{"default":3,"override":false,"value":3},"centre_of_rotation_m":{"default":[0.4,0,0],"override":false,"value":[0.4,0,0]},"convergence_check_interval":{"default":25,"override":false,"value":25},"convergence_min_iters":{"default":100,"override":false,"value":100},"convergence_tolerance":{"default":0.005,"override":false,"value":0.005},"freestream_velocity_mps":{"default":60,"override":false,"value":60},"geometry":{"default":null,"override":false,"value":null},"iterations":{"default":1000,"override":false,"value":1000},"mesh_level":{"default":4,"override":false,"value":4},"nprocs":{"default":4,"override":false,"value":4},"parallel_mesh":{"default":true,"override":false,"value":true},"reference_area_m2":{"default":0.7532,"override":false,"value":0.7532},"reference_length_m":{"default":0.646,"override":false,"value":0.646}}'
+            custom string arxyne:run:provenance:solver_cert = "builtin"
+            custom string arxyne:run:provenance:solver_image = "ghcr.io/arxynehq/arxyne-solver-openfoam@sha256:53e316638a729394647d9877591d74db46670c9ab527b3bd1c965d12517d7b7d"
+            custom string arxyne:run:provenance:solver_version = "v2312"
+            custom string arxyne:run:provenance:timestamp = "2026-10-27T14:38:43.097097+00:00"
+            custom string arxyne:run:provenance:timestamp_local = "2026-10-27T14:38:43.097097+00:00"
+            custom string arxyne:run:provenance:timestamp_zone = "Europe/London"
+            custom string arxyne:run:run_id = "run_20261027T143806590301"
+            custom string arxyne:run:slice_path = "/slices/onera-m6_openfoam_20261027T143836.png"
+            custom string arxyne:run:solver = "openfoam"
+            custom string arxyne:run:solver_build = "3b90fc5fd2160d1046b92cb531456a1cb8b90ba4"
+            custom string arxyne:run:status = "success"
+            custom string arxyne:run:timestamp = "2026-10-27T14:38:43.099515+00:00"
+            custom string arxyne:run:timestamp_local = "2026-10-27T14:38:43.099515+00:00"
+            custom string arxyne:run:timestamp_zone = "Europe/London"
+            custom string arxyne:run:timestep = "0"
+            custom string arxyne:run:turbulence_model = "kOmegaSST;"
+            custom string arxyne:run:vehicle = "case"
+            custom string arxyne:run:video_path = "/slices/onera-m6_openfoam_aero_20261027T143841.mp4"
+            custom int arxyne:run:wall_clock_seconds = 26
+            custom string arxyne:run:work_dir = "<arxyne-home>/work/onera-m6-openfoam"
+            custom double arxyne:run:y_plus_avg = 1433.77
+        }
+    }
+}
+

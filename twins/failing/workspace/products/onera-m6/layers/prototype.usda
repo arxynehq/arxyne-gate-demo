@@ -1,0 +1,28 @@
+#usda 1.0
+(
+    defaultPrim = "Product"
+    doc = "onera-m6 — prototype layer (stub; populated as lifecycle progresses)."
+)
+
+over "Product"
+{
+    double arxyne:current:cd = 0.01963624
+    double arxyne:current:cl = 0.1766451
+    double arxyne:current:cm_pitch = -0.01052788
+    string arxyne:provenance:cd = "simulated:openfoam"
+    string arxyne:provenance:cl = "simulated:openfoam"
+    string arxyne:provenance:cm_pitch = "simulated:openfoam"
+    string arxyne:provenance:fingerprint = "sha256:548b1e55a2e3560114eb7b29f6df90776ff39a89bfebf9d4ce6c91909643cd14"
+    string arxyne:provenance:last_modified_by = "derived"
+    string arxyne:provenance:last_updated = "derived"
+    string arxyne:provenance:mesh_cache = "e1fe077460610bc7f92f1a75146d645e1bebc6f294139a5691ffa776697ebd37"
+    string arxyne:provenance:simulation_status = "derived"
+    string arxyne:provenance:solver_cert = "builtin"
+    string arxyne:provenance:solver_image = "ghcr.io/arxynehq/arxyne-solver-openfoam@sha256:53e316638a729394647d9877591d74db46670c9ab527b3bd1c965d12517d7b7d"
+    string arxyne:provenance:solver_version = "v2312"
+    string lastModifiedBy = "Arxyne"
+    string lastUpdated = "2026-10-27T14:38:43.099515+00:00"
+    string[] resultsHistory = ["2026-10-27T14:38:43.099515+00:00|domain=aero|local=2026-10-27T14:38:43.099515+00:00|tz=Europe/London|cd=0.019636|cl=0.176645|cm_pitch=-0.010528|solver=openfoam|run=548b1e55a2e3"]
+    string simulationStatus = "COMPLETE"
+}
+

@@ -1,0 +1,15 @@
+#usda 1.0
+(
+    defaultPrim = "Product"
+    doc = """Design intent — what we want this product to achieve."""
+)
+
+def Xform "Product" (
+    kind = "component")
+{
+    string arxyne:product:name = "onera-m6"
+    string arxyne:product:domain = "aero"
+    string arxyne:target_src:cd = ""
+    string solver_case_template = "onera-m6"
+    double target_cd_max = 0.015
+}
